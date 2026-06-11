@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iFarm Tech Limited — Smart Farming. Stronger Malawi.</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --dark-green: #0A4226;
+    --light-green: #9ACC5B;
+    --mid-green: #3B6851;
+    --pale-green: #EBF5DE;
+    --pearl: #FCFCF7;
+    --black: #272635;
+    --shade-1: #AED67C;
+    --shade-2: #C2E09D;
+    --text-muted: #52515D;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--pearl);
+    color: var(--black);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(252,252,247,0.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(10,66,38,0.08);
+    padding: 0 48px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo-icon {
+    width: 36px;
+    height: 44px;
+  }
+
+  .nav-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .nav-logo-text .brand-name {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--dark-green);
+    letter-spacing: -0.2px;
+  }
+
+  .nav-logo-text .brand-tagline {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    color: var(--mid-green);
+    letter-spacing: 0.3px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--black);
+    text-decoration: none;
+    opacity: 0.75;
+    transition: opacity 0.2s, color 0.2s;
+  }
+
+  .nav-links a:hover {
+    opacity: 1;
+    color: var(--dark-green);
+  }
+
+  .nav-cta {
+    background: var(--dark-green);
+    color: var(--pearl) !important;
+    opacity: 1 !important;
+    padding: 9px 22px;
+    border-radius: 100px;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover {
+    background: var(--mid-green) !important;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 48px 80px;
+  }
+
+  .hero-blob-tl {
+    position: absolute;
+    top: -80px;
+    right: -60px;
+    width: 420px;
+    height: 420px;
+    background: linear-gradient(145deg, var(--light-green) 0%, var(--shade-1) 100%);
+    border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+    opacity: 0.35;
+    animation: morphBlob 8s ease-in-out infinite;
+  }
+
+  .hero-blob-br {
+    position: absolute;
+    bottom: -100px;
+    left: -80px;
+    width: 360px;
+    height: 360px;
+    background: linear-gradient(145deg, var(--pale-green) 0%, var(--shade-2) 100%);
+    border-radius: 40% 60% 30% 70% / 60% 40% 50% 50%;
+    opacity: 0.5;
+    animation: morphBlob 10s ease-in-out infinite reverse;
+  }
+
+  @keyframes morphBlob {
+    0%, 100% { border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%; }
+    33% { border-radius: 40% 60% 50% 50% / 30% 60% 40% 70%; }
+    66% { border-radius: 50% 50% 40% 60% / 60% 40% 70% 30%; }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 640px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--mid-green);
+    background: rgba(154,204,91,0.15);
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+  }
+
+  .hero-eyebrow svg { flex-shrink: 0; }
+
+  .hero h1 {
+    font-size: clamp(42px, 6vw, 74px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    color: var(--dark-green);
+    margin-bottom: 24px;
+  }
+
+  .hero h1 span {
+    color: var(--light-green);
+  }
+
+  .hero-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--text-muted);
+    max-width: 520px;
+    margin-bottom: 44px;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--dark-green);
+    color: var(--pearl);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 28px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover {
+    background: var(--mid-green);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--dark-green);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 0;
+    text-decoration: none;
+    border-bottom: 2px solid var(--light-green);
+    transition: color 0.2s;
+  }
+
+  .btn-secondary:hover { color: var(--mid-green); }
+
+  .hero-right {
+    position: absolute;
+    right: 48px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+
+  .hero-stat-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .stat-card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px 24px;
+    box-shadow: 0 4px 24px rgba(10,66,38,0.1);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-width: 240px;
+  }
+
+  .stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .stat-icon.green { background: var(--pale-green); }
+  .stat-icon.dark { background: var(--dark-green); }
+
+  .stat-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-bottom: 3px;
+  }
+
+  .stat-value {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--dark-green);
+  }
+
+  /* ── SECTIONS SHARED ── */
+  section {
+    padding: 100px 48px;
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--mid-green);
+    margin-bottom: 16px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--light-green);
+    border-radius: 2px;
+  }
+
+  .section-title {
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    color: var(--dark-green);
+    margin-bottom: 20px;
+  }
+
+  .section-title span { color: var(--light-green); }
+
+  .section-desc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text-muted);
+    max-width: 580px;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #about .about-blob {
+    position: absolute;
+    top: -60px;
+    right: -80px;
+    width: 300px;
+    height: 300px;
+    background: var(--pale-green);
+    border-radius: 50% 70% 40% 60% / 60% 40% 70% 50%;
+    opacity: 0.6;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .about-image-frame {
+    position: relative;
+  }
+
+  .about-image-frame img {
+    width: 100%;
+    border-radius: 28px;
+    display: block;
+    object-fit: cover;
+    height: 480px;
+  }
+
+  .about-image-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background: var(--dark-green);
+    color: var(--pearl);
+    border-radius: 20px;
+    padding: 18px 24px;
+    box-shadow: 0 8px 32px rgba(10,66,38,0.3);
+  }
+
+  .badge-number {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1;
+    color: var(--light-green);
+  }
+
+  .badge-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(252,252,247,0.75);
+    margin-top: 4px;
+  }
+
+  /* ── VISION / MISSION ── */
+  #vision {
+    background: var(--pearl);
+  }
+
+  .vision-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .vision-card {
+    background: white;
+    border-radius: 24px;
+    padding: 36px 32px;
+    border: 1px solid rgba(10,66,38,0.07);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .vision-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--dark-green), var(--light-green));
+  }
+
+  .vision-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(10,66,38,0.1);
+  }
+
+  .vision-card-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--pale-green);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .vision-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--dark-green);
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+  }
+
+  .vision-card p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--text-muted);
+  }
+
+  /* ── BRAND VOICE ── */
+  #voice {
+    background: var(--dark-green);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .voice-blob {
+    position: absolute;
+    bottom: -100px;
+    right: -60px;
+    width: 400px;
+    height: 400px;
+    background: rgba(154,204,91,0.1);
+    border-radius: 50% 60% 40% 70% / 60% 50% 70% 40%;
+  }
+
+  #voice .section-label { color: var(--shade-2); }
+  #voice .section-label::before { background: var(--light-green); }
+  #voice .section-title { color: var(--pearl); }
+  #voice .section-title span { color: var(--light-green); }
+
+  .voice-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-top: 56px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .voice-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(154,204,91,0.2);
+    border-radius: 20px;
+    padding: 28px 24px;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .voice-card:hover {
+    background: rgba(154,204,91,0.1);
+    transform: translateY(-3px);
+  }
+
+  .voice-card-icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(154,204,91,0.15);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .voice-card h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--light-green);
+    margin-bottom: 10px;
+    letter-spacing: -0.2px;
+  }
+
+  .voice-card p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(252,252,247,0.65);
+  }
+
+  /* ── LOGO SECTION ── */
+  #logo {
+    background: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .logo-section-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .logo-anatomy {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 60px;
+    margin-bottom: 80px;
+  }
+
+  .logo-display {
+    background: linear-gradient(145deg, var(--pale-green) 0%, rgba(154,204,91,0.2) 100%);
+    border-radius: 32px;
+    padding: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 340px;
+  }
+
+  .logo-display svg {
+    width: 120px;
+    height: auto;
+  }
+
+  .logo-parts { display: flex; flex-direction: column; gap: 28px; }
+
+  .logo-part {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .logo-part-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+
+  .logo-part-dot.leaf { background: var(--light-green); }
+  .logo-part-dot.stem { background: var(--dark-green); }
+
+  .logo-part h4 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--dark-green);
+    margin-bottom: 6px;
+  }
+
+  .logo-part p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+
+  .logo-variations {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .logo-var {
+    border-radius: 20px;
+    padding: 36px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .logo-var.light { background: var(--light-green); }
+  .logo-var.dark  { background: var(--dark-green); }
+  .logo-var.bw    { background: var(--black); }
+
+  .logo-var-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.5px;
+    text-align: center;
+  }
+
+  /* ── PALETTE ── */
+  #palette {
+    background: var(--pearl);
+  }
+
+  .palette-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 56px;
+  }
+
+  .color-swatch {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+  }
+
+  .swatch-color {
+    height: 120px;
+  }
+
+  .swatch-info {
+    background: white;
+    padding: 16px 20px;
+  }
+
+  .swatch-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--dark-green);
+    margin-bottom: 4px;
+  }
+
+  .swatch-hex {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  #typography {
+    background: white;
+  }
+
+  .type-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 56px;
+  }
+
+  .type-card {
+    border: 1px solid rgba(10,66,38,0.1);
+    border-radius: 24px;
+    padding: 40px;
+  }
+
+  .type-sample {
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--dark-green);
+    margin-bottom: 8px;
+  }
+
+  .type-sample.jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
+  .type-sample.dm     { font-family: 'DM Sans', sans-serif; }
+  .type-sample.light  { color: var(--light-green); }
+
+  .type-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--dark-green);
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(10,66,38,0.1);
+  }
+
+  .type-weights {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 16px;
+  }
+
+  .weight-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px;
+    color: var(--dark-green);
+  }
+
+  .weight-bar {
+    width: 32px;
+    height: 3px;
+    background: var(--light-green);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  /* ── CTA ── */
+  #contact {
+    background: linear-gradient(145deg, var(--dark-green) 0%, #0d5530 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-blob-l {
+    position: absolute;
+    left: -100px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 350px;
+    height: 350px;
+    background: rgba(154,204,91,0.12);
+    border-radius: 60% 40% 50% 70%;
+  }
+
+  .cta-blob-r {
+    position: absolute;
+    right: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 300px;
+    background: rgba(154,204,91,0.08);
+    border-radius: 40% 70% 60% 50%;
+  }
+
+  .cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  #contact .section-label { color: var(--shade-2); justify-content: center; }
+  #contact .section-label::before { background: var(--light-green); }
+  #contact .section-title { color: var(--pearl); font-size: clamp(32px, 4vw, 50px); }
+  #contact .section-title span { color: var(--light-green); }
+
+  .cta-desc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    color: rgba(252,252,247,0.7);
+    margin: 20px 0 40px;
+  }
+
+  .btn-light {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--light-green);
+    color: var(--dark-green);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 15px 32px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-light:hover {
+    background: var(--shade-1);
+    transform: translateY(-2px);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    padding: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer-brand-text .fn {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--pearl);
+  }
+
+  .footer-brand-text .ft {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    color: rgba(252,252,247,0.45);
+    margin-top: 2px;
+    letter-spacing: 0.3px;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: rgba(252,252,247,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--light-green); }
+
+  .footer-copy {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    color: rgba(252,252,247,0.3);
+  }
+
+  /* ── DECORATIVE DIVIDER ── */
+  .wave-divider {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    nav { padding: 0 24px; }
+    section { padding: 80px 24px; }
+    .hero { padding: 120px 24px 80px; }
+    .hero-right { display: none; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    .vision-grid { grid-template-columns: 1fr 1fr; }
+    .voice-grid { grid-template-columns: repeat(3, 1fr); }
+    .logo-anatomy { grid-template-columns: 1fr; }
+    .palette-grid { grid-template-columns: repeat(2, 1fr); }
+    .type-grid { grid-template-columns: 1fr; }
+    footer { padding: 36px 24px; }
+  }
+
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .hero h1 { letter-spacing: -1px; }
+    .vision-grid { grid-template-columns: 1fr; }
+    .voice-grid { grid-template-columns: 1fr 1fr; }
+    .logo-variations { grid-template-columns: 1fr; }
+    .palette-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+  }
+
+  /* ── FADE-IN ANIMATIONS ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .stagger-1 { transition-delay: 0.1s; }
+  .stagger-2 { transition-delay: 0.2s; }
+  .stagger-3 { transition-delay: 0.3s; }
+  .stagger-4 { transition-delay: 0.4s; }
+  .stagger-5 { transition-delay: 0.5s; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ NAV ══════════════════ -->
+<nav>
+  <a class="nav-logo" href="#">
+    <svg class="nav-logo-icon" viewBox="0 0 74 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Stem -->
+      <path d="M37 88 C20 88 10 75 10 58 L10 38 Q10 20 37 20 Q64 20 64 38 L64 58 C64 75 54 88 37 88Z" fill="#0A4226"/>
+      <!-- Leaf -->
+      <path d="M37 24 C37 24 20 10 26 2 C32 -5 52 4 52 20 C52 34 37 40 37 24Z" fill="#9ACC5B"/>
+      <path d="M37 24 C37 24 30 18 31 12 Q36 6 43 12 C48 17 37 24 37 24Z" fill="white" opacity="0.6"/>
+    </svg>
+    <div class="nav-logo-text">
+      <span class="brand-name">iFarm Tech Limited</span>
+      <span class="brand-tagline">Smart Farming. Stronger Malawi.</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#vision">Mission</a></li>
+    <li><a href="#voice">Our Voice</a></li>
+    <li><a href="#logo">Brand</a></li>
+    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+  </ul>
+</nav>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-blob-tl"></div>
+  <div class="hero-blob-br"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3B6851" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+      Malawi's AgriTech Pioneer
+    </div>
+    <h1>Smart Farming.<br/><span>Stronger</span><br/>Malawi.</h1>
+    <p class="hero-sub">
+      iFarm Tech Limited operates at the intersection of agriculture and technology — empowering Malawi's farmers with real-time data, digital tools, and precision solutions to grow more, earn more, and connect to the world.
+    </p>
+    <div class="hero-actions">
+      <a href="#about" class="btn-primary">
+        Explore Our Mission
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="#voice" class="btn-secondary">
+        Our Brand Story
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-stat-cards">
+      <div class="stat-card fade-up stagger-1">
+        <div class="stat-icon green">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="stat-label">Farmers Connected</div>
+          <div class="stat-value">2,400+</div>
+        </div>
+      </div>
+      <div class="stat-card fade-up stagger-2">
+        <div class="stat-icon dark">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9ACC5B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <div>
+          <div class="stat-label">Districts Covered</div>
+          <div class="stat-value">12 Regions</div>
+        </div>
+      </div>
+      <div class="stat-card fade-up stagger-3">
+        <div class="stat-icon green">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10"/>
+            <line x1="12" y1="20" x2="12" y2="4"/>
+            <line x1="6" y1="20" x2="6" y2="14"/>
+          </svg>
+        </div>
+        <div>
+          <div class="stat-label">Productivity Increase</div>
+          <div class="stat-value">+38% avg.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ ABOUT ══════════════════ -->
+<section id="about">
+  <div class="about-blob"></div>
+  <div class="about-grid">
+    <div class="about-image-frame fade-up">
+      <img
+        src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4e7?auto=format&fit=crop&w=800&q=80"
+        alt="Malawi farmer in greenhouse"
+        style="filter: saturate(1.05);"
+      />
+      <div class="about-image-badge">
+        <div class="badge-number">2024</div>
+        <div class="badge-text">Founded in Malawi</div>
+      </div>
+    </div>
+    <div class="fade-up stagger-2">
+      <div class="section-label">About Us</div>
+      <h2 class="section-title">Rooted in <span>Agriculture.</span><br/>Built on Data.</h2>
+      <p class="section-desc" style="margin-bottom: 28px;">
+        iFarmTech Ltd. is an innovative Malawian company operating at the intersection of agriculture and technology. We are dedicated to producing agricultural products while simultaneously building a comprehensive tech platform to connect and empower Malawi's entire agriculture economy.
+      </p>
+      <p class="section-desc">
+        Our distinctive strategy begins with hands-on farming and small-scale agro-processing, allowing us to generate revenue and gather crucial real-world data from the ground up. This data-first approach is foundational to developing tailored software solutions aimed at significantly scaling productivity, enhancing market access, and improving financing opportunities for farmers in Malawi and, eventually, beyond.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ VISION / MISSION ══════════════════ -->
+<section id="vision">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="section-label fade-up">Our Foundation</div>
+    <h2 class="section-title fade-up stagger-1">Vision. Mission. <span>Focus.</span></h2>
+  </div>
+  <div class="vision-grid">
+    <div class="vision-card fade-up stagger-1">
+      <div class="vision-card-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <circle cx="12" cy="12" r="3"/>
+          <line x1="12" y1="2" x2="12" y2="4"/>
+          <line x1="12" y1="20" x2="12" y2="22"/>
+          <line x1="2" y1="12" x2="4" y2="12"/>
+          <line x1="20" y1="12" x2="22" y2="12"/>
+        </svg>
+      </div>
+      <h3>Our Vision</h3>
+      <p>To be pioneers of smart farming and create solutions for a stronger, richer Malawi — where every farmer has access to the tools they need to thrive.</p>
+    </div>
+    <div class="vision-card fade-up stagger-2">
+      <div class="vision-card-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+          <polyline points="22 4 12 14.01 9 11.01"/>
+        </svg>
+      </div>
+      <h3>Our Mission</h3>
+      <p>To empower Malawi's farmers with technology and real-time data to grow more, earn more, and connect to the world's agricultural markets.</p>
+    </div>
+    <div class="vision-card fade-up stagger-3">
+      <div class="vision-card-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+      </div>
+      <h3>Our Core Focus</h3>
+      <p>Combining hands-on agriculture with innovative technology to empower farmers and fundamentally transform the agricultural landscape of Malawi.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ BRAND VOICE ══════════════════ -->
+<section id="voice">
+  <div class="voice-blob"></div>
+  <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;">
+    <div class="section-label fade-up">Brand Voice</div>
+    <h2 class="section-title fade-up stagger-1">How We <span>Speak.</span><br/>What We Stand For.</h2>
+  </div>
+  <div class="voice-grid">
+    <div class="voice-card fade-up stagger-1">
+      <div class="voice-card-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9ACC5B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      </div>
+      <h4>Empowering</h4>
+      <p>We uplift, equip, and support farmers and partners to achieve their full potential.</p>
+    </div>
+    <div class="voice-card fade-up stagger-2">
+      <div class="voice-card-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9ACC5B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+      </div>
+      <h4>Down-To-Earth</h4>
+      <p>We speak plainly, practically, and respectfully — no tech jargon.</p>
+    </div>
+    <div class="voice-card fade-up stagger-3">
+      <div class="voice-card-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9ACC5B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+      </div>
+      <h4>Innovative</h4>
+      <p>We constantly push boundaries and adapt to new technologies to serve farmers better.</p>
+    </div>
+    <div class="voice-card fade-up stagger-4">
+      <div class="voice-card-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9ACC5B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <h4>Trustworthy</h4>
+      <p>We deliver what we promise, and always put integrity first in every interaction.</p>
+    </div>
+    <div class="voice-card fade-up stagger-5">
+      <div class="voice-card-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9ACC5B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+      </div>
+      <h4>Optimistic</h4>
+      <p>We believe in the power of agriculture to change lives and build a stronger nation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ LOGO ══════════════════ -->
+<section id="logo">
+  <div class="logo-section-inner">
+    <div class="section-label fade-up">Identity System</div>
+    <h2 class="section-title fade-up stagger-1">Our <span>Logo.</span><br/>Anatomy &amp; Meaning.</h2>
+
+    <div class="logo-anatomy">
+      <div class="logo-display fade-up">
+        <svg width="140" height="170" viewBox="0 0 74 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Stem (lower body = the i stem) -->
+          <path d="M37 110 C18 110 8 93 8 72 L8 46 Q8 26 37 26 Q66 26 66 46 L66 72 C66 93 56 110 37 110Z" fill="#0A4226"/>
+          <!-- Leaf (tittle = the dot of the i) -->
+          <path d="M37 30 C37 30 16 12 24 2 C32 -6 60 6 60 26 C60 42 37 48 37 30Z" fill="#9ACC5B"/>
+          <!-- Leaf highlight -->
+          <path d="M37 30 C37 30 28 22 30 14 Q36 6 46 14 C52 20 37 30 37 30Z" fill="white" opacity="0.55"/>
+          <!-- Stem highlight -->
+          <path d="M37 100 C37 100 20 90 20 72 L20 50 Q20 36 37 36 Z" fill="white" opacity="0.07"/>
+        </svg>
+      </div>
+
+      <div class="logo-parts fade-up stagger-2">
+        <div class="logo-part">
+          <div class="logo-part-dot leaf"></div>
+          <div>
+            <h4>Tittle (Leaf)</h4>
+            <p>Reflects iFarm's mission to blend cutting-edge technology with agriculture — aiming to revolutionize farming through digital solutions, precision agriculture, and sustainable practices.</p>
+          </div>
+        </div>
+        <div class="logo-part">
+          <div class="logo-part-dot stem"></div>
+          <div>
+            <h4>Stem</h4>
+            <p>Represents iFarm's roots in hands-on farming and ground-up data gathering — a strong, grounded foundation from which digital innovation grows.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="logo-variations fade-up">
+      <div class="logo-var light">
+        <svg width="54" height="64" viewBox="0 0 74 110" fill="none">
+          <path d="M37 110 C18 110 8 93 8 72 L8 46 Q8 26 37 26 Q66 26 66 46 L66 72 C66 93 56 110 37 110Z" fill="#0A4226"/>
+          <path d="M37 30 C37 30 16 12 24 2 C32 -6 60 6 60 26 C60 42 37 48 37 30Z" fill="white"/>
+          <path d="M37 30 C37 30 28 22 30 14 Q36 6 46 14 C52 20 37 30 37 30Z" fill="rgba(154,204,91,0.5)"/>
+        </svg>
+        <span class="logo-var-label">Light Background</span>
+      </div>
+      <div class="logo-var dark">
+        <svg width="54" height="64" viewBox="0 0 74 110" fill="none">
+          <path d="M37 110 C18 110 8 93 8 72 L8 46 Q8 26 37 26 Q66 26 66 46 L66 72 C66 93 56 110 37 110Z" fill="rgba(255,255,255,0.15)"/>
+          <path d="M37 30 C37 30 16 12 24 2 C32 -6 60 6 60 26 C60 42 37 48 37 30Z" fill="#9ACC5B"/>
+          <path d="M37 30 C37 30 28 22 30 14 Q36 6 46 14 C52 20 37 30 37 30Z" fill="white" opacity="0.6"/>
+        </svg>
+        <span class="logo-var-label">Dark Background</span>
+      </div>
+      <div class="logo-var bw">
+        <svg width="54" height="64" viewBox="0 0 74 110" fill="none">
+          <path d="M37 110 C18 110 8 93 8 72 L8 46 Q8 26 37 26 Q66 26 66 46 L66 72 C66 93 56 110 37 110Z" fill="#aaa"/>
+          <path d="M37 30 C37 30 16 12 24 2 C32 -6 60 6 60 26 C60 42 37 48 37 30Z" fill="white"/>
+          <path d="M37 30 C37 30 28 22 30 14 Q36 6 46 14 C52 20 37 30 37 30Z" fill="rgba(200,200,200,0.5)"/>
+        </svg>
+        <span class="logo-var-label">Black &amp; White</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ PALETTE ══════════════════ -->
+<section id="palette">
+  <div class="palette-inner">
+    <div class="section-label fade-up">Visual Identity</div>
+    <h2 class="section-title fade-up stagger-1">Colour <span>Palette.</span></h2>
+    <div class="palette-grid">
+      <div class="color-swatch fade-up stagger-1">
+        <div class="swatch-color" style="background:#0A4226;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Dark Green</div>
+          <div class="swatch-hex">#0A4226</div>
+        </div>
+      </div>
+      <div class="color-swatch fade-up stagger-2">
+        <div class="swatch-color" style="background:#9ACC5B;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Light Green</div>
+          <div class="swatch-hex">#9ACC5B</div>
+        </div>
+      </div>
+      <div class="color-swatch fade-up stagger-3">
+        <div class="swatch-color" style="background:#FCFCF7; border: 1px solid #eee;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Pearl White</div>
+          <div class="swatch-hex">#FCFCF7</div>
+        </div>
+      </div>
+      <div class="color-swatch fade-up stagger-4">
+        <div class="swatch-color" style="background:#272635;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Black</div>
+          <div class="swatch-hex">#272635</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ TYPOGRAPHY ══════════════════ -->
+<section id="typography">
+  <div class="type-inner">
+    <div class="section-label fade-up">Design System</div>
+    <h2 class="section-title fade-up stagger-1">Type <span>Faces.</span></h2>
+    <div class="type-grid">
+      <div class="type-card fade-up stagger-1">
+        <div class="type-sample jakarta">Aa</div>
+        <div class="type-sample jakarta light" style="font-size:36px; font-weight:400; margin-top:-8px;">Plus Jakarta Sans</div>
+        <div class="type-name">Primary Typeface — Plus Jakarta Sans</div>
+        <p style="font-family:'DM Sans'; font-size:14px; color:var(--text-muted); line-height:1.6; margin-bottom:20px;">
+          Chosen because it perfectly balances modern innovation with human warmth. Its clean, geometric design communicates clarity and professionalism, while its rounded edges and versatile weights keep the tone approachable and trustworthy.
+        </p>
+        <div class="type-weights">
+          <div class="weight-item" style="font-weight:300;">
+            <div class="weight-bar" style="opacity:0.3;"></div>Light
+          </div>
+          <div class="weight-item" style="font-weight:400;">
+            <div class="weight-bar" style="opacity:0.5;"></div>Regular
+          </div>
+          <div class="weight-item" style="font-weight:500;">
+            <div class="weight-bar" style="opacity:0.65;"></div>Medium
+          </div>
+          <div class="weight-item" style="font-weight:600;">
+            <div class="weight-bar" style="opacity:0.8;"></div>Semi Bold
+          </div>
+          <div class="weight-item" style="font-weight:700;">
+            <div class="weight-bar;"></div>Bold
+          </div>
+          <div class="weight-item" style="font-weight:800;">
+            <div class="weight-bar"></div>Extra Bold
+          </div>
+        </div>
+      </div>
+      <div class="type-card fade-up stagger-2">
+        <div class="type-sample dm" style="font-family:'DM Sans';">Aa</div>
+        <div class="type-sample dm light" style="font-family:'DM Sans'; font-size:36px; font-weight:400; margin-top:-8px;">DM Sans</div>
+        <div class="type-name">Secondary Typeface — DM Sans</div>
+        <p style="font-family:'DM Sans'; font-size:14px; color:var(--text-muted); line-height:1.6; margin-bottom:20px;">
+          Used for body copy, captions, and utility text. DM Sans brings a neutral, readable quality that supports Plus Jakarta Sans without competing — perfect for data-heavy interfaces and longer reading passages.
+        </p>
+        <div class="type-weights">
+          <div class="weight-item" style="font-family:'DM Sans'; font-weight:300;">
+            <div class="weight-bar" style="opacity:0.3;"></div>Light
+          </div>
+          <div class="weight-item" style="font-family:'DM Sans'; font-weight:400;">
+            <div class="weight-bar" style="opacity:0.5;"></div>Regular
+          </div>
+          <div class="weight-item" style="font-family:'DM Sans'; font-weight:500;">
+            <div class="weight-bar" style="opacity:0.7;"></div>Medium
+          </div>
+          <div class="weight-item" style="font-family:'DM Sans'; font-weight:600;">
+            <div class="weight-bar"></div>Semi Bold
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ CTA ══════════════════ -->
+<section id="contact">
+  <div class="cta-blob-l"></div>
+  <div class="cta-blob-r"></div>
+  <div class="cta-inner">
+    <div class="section-label fade-up" style="justify-content:center;">Connect With Us</div>
+    <h2 class="section-title fade-up stagger-1">Ready to <span>Transform</span><br/>Your Farm?</h2>
+    <p class="cta-desc fade-up stagger-2">
+      Whether you're a farmer looking for smarter tools, an investor who believes in Malawi's agricultural future, or a partner ready to build something meaningful — let's talk.
+    </p>
+    <a href="mailto:info@ifarmtech.mw" class="btn-light fade-up stagger-3">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+        <polyline points="22,6 12,13 2,6"/>
+      </svg>
+      Get In Touch
+    </a>
+  </div>
+</section>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer>
+  <div class="footer-brand">
+    <svg width="30" height="36" viewBox="0 0 74 110" fill="none">
+      <path d="M37 110 C18 110 8 93 8 72 L8 46 Q8 26 37 26 Q66 26 66 46 L66 72 C66 93 56 110 37 110Z" fill="#9ACC5B"/>
+      <path d="M37 30 C37 30 16 12 24 2 C32 -6 60 6 60 26 C60 42 37 48 37 30Z" fill="white"/>
+    </svg>
+    <div class="footer-brand-text">
+      <div class="fn">iFarm Tech Limited</div>
+      <div class="ft">Smart Farming. Stronger Malawi.</div>
+    </div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#vision">Mission</a></li>
+    <li><a href="#voice">Brand Voice</a></li>
+    <li><a href="#logo">Identity</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2024 iFarm Tech Limited, Malawi</div>
+</footer>
+
+<script>
+  // Scroll-triggered fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Trigger hero elements immediately
+  document.querySelectorAll('.hero .fade-up').forEach(el => {
+    setTimeout(() => el.classList.add('visible'), 300);
+  });
+
+  // Nav active state on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      if (window.scrollY >= sectionTop) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.style.opacity = '0.75';
+      link.style.color = '';
+      if (link.getAttribute('href') === `#${current}`) {
+        link.style.opacity = '1';
+        link.style.color = '#0A4226';
+      }
+    });
+  });
+</script>
+</body>
+</html>

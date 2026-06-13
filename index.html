@@ -113,6 +113,136 @@
   .legal-notice-banner p { font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--text-muted); line-height: 1.6; }
   .legal-notice-banner a { color: var(--dark-green); font-weight: 600; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
 
+  /* ── PRODUCTS SECTION ── */
+  #products { background: var(--pearl); position: relative; overflow: hidden; }
+  #products .products-blob {
+    position: absolute; bottom: -80px; right: -60px;
+    width: 340px; height: 340px;
+    background: linear-gradient(145deg, var(--pale-green) 0%, rgba(154,204,91,0.2) 100%);
+    border-radius: 55% 45% 60% 40% / 45% 60% 40% 55%;
+    opacity: 0.55;
+  }
+  .products-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    margin-top: 56px;
+  }
+  /* PRODUCT CARD */
+  .product-card {
+    background: white;
+    border-radius: 28px;
+    overflow: hidden;
+    border: 1px solid rgba(10,66,38,0.07);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .product-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(10,66,38,0.1); }
+  /* IMAGE SLOT */
+  .product-img-wrap {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    background: var(--pale-green);
+    position: relative;
+    flex-shrink: 0;
+  }
+  .product-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .product-card:hover .product-img-wrap img { transform: scale(1.04); }
+  /* Placeholder shown when no image is supplied */
+  .product-img-placeholder {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 12px;
+    color: var(--mid-green);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .product-img-placeholder svg { opacity: 0.45; }
+  /* CATEGORY BADGE */
+  .product-badge {
+    position: absolute; top: 16px; left: 16px;
+    background: var(--dark-green); color: var(--pearl);
+    font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 100px;
+  }
+  .product-badge.light { background: var(--light-green); color: var(--dark-green); }
+  /* CARD BODY */
+  .product-body { padding: 28px 32px 32px; flex: 1; display: flex; flex-direction: column; }
+  .product-name {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 24px; font-weight: 800; letter-spacing: -0.6px;
+    color: var(--dark-green); margin-bottom: 10px;
+  }
+  .product-desc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px; line-height: 1.65; color: var(--text-muted);
+    margin-bottom: 24px; flex: 1;
+  }
+  .product-attributes {
+    display: flex; flex-direction: column; gap: 10px;
+    margin-bottom: 28px;
+  }
+  .product-attr {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--text-muted);
+  }
+  .product-attr-icon {
+    width: 30px; height: 30px; border-radius: 9px;
+    background: var(--pale-green);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .product-attr strong { color: var(--dark-green); font-weight: 600; margin-right: 4px; }
+  .product-cta-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .product-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--dark-green); color: var(--pearl);
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; font-weight: 600;
+    padding: 12px 22px; border-radius: 100px; text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .product-btn:hover { background: var(--mid-green); transform: translateY(-1px); }
+  .product-btn.outline {
+    background: transparent; color: var(--dark-green);
+    border: 1.5px solid rgba(10,66,38,0.25);
+  }
+  .product-btn.outline:hover { background: var(--pale-green); border-color: var(--light-green); }
+  /* BOTTOM STRIPE */
+  .products-tagline {
+    margin-top: 52px;
+    background: var(--dark-green);
+    border-radius: 24px;
+    padding: 36px 44px;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    flex-wrap: wrap;
+  }
+  .products-tagline p {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 20px; font-weight: 700; color: var(--pearl);
+    letter-spacing: -0.4px; line-height: 1.3;
+    max-width: 540px;
+  }
+  .products-tagline p span { color: var(--light-green); }
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .products-grid { grid-template-columns: 1fr; }
+    .products-tagline { flex-direction: column; text-align: center; }
+    .product-img-wrap { height: 240px; }
+    .product-body { padding: 22px 24px 26px; }
+    .product-name { font-size: 20px; }
+  }
+
   /* ── BRAND VOICE ── */
   #voice { background: var(--dark-green); position: relative; overflow: hidden; }
   .voice-blob { position: absolute; bottom: -100px; right: -60px; width: 400px; height: 400px; background: rgba(154,204,91,0.1); border-radius: 50% 60% 40% 70% / 60% 50% 70% 40%; }
@@ -614,6 +744,149 @@
         <p>Legal support services are provided in strict accordance with the laws of Malawi. Services requiring licensed legal practitioners are delivered only by or through duly admitted advocates. <a onclick="openLegalModal()">Read the full Legal Disclaimer →</a></p>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="products">
+  <div class="products-blob"></div>
+  <div class="products-inner">
+
+    <div class="section-label fade-up">Our Products</div>
+    <h2 class="section-title fade-up stagger-1">Grown &amp; <span>Crafted</span><br/>in Malawi.</h2>
+    <p class="section-desc fade-up stagger-2" style="margin-bottom: 0;">
+      From our own farms to your cup — iFarm Tech sources, processes, and supplies
+      premium agricultural produce. Every product reflects our commitment to quality,
+      sustainable farming, and the strength of Malawi's land.
+    </p>
+
+    <div class="products-grid">
+
+      <!-- ════════════════════════════════════
+           PRODUCT 1 — COFFEE
+           To replace the image:
+             1. Find the <img> tag below.
+             2. Change src="YOUR_IMAGE_HERE.jpg" to your coffee image path.
+             3. Update alt="..." to describe your actual image.
+      ════════════════════════════════════ -->
+      <div class="product-card fade-up stagger-1">
+        <div class="product-img-wrap">
+
+          <!-- IMAGE SLOT — COFFEE -->
+          <!-- Replace src below with your coffee product image -->
+          <img
+            src="icoffee.jpg"
+            alt="iFarm Coffee — Premium Malawian coffee"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          
+          <div class="product-badge">Coffee</div>
+        </div>
+
+        <div class="product-body">
+          <div class="product-name">Malawian Coffee</div>
+          <p class="product-desc">
+            Grown in the rich, high-altitude soils of Malawi, our coffee is hand-picked
+            and carefully processed to preserve its natural depth of flavour — earthy,
+            smooth, and distinctly African. Sourced directly from smallholder farmers
+            in our network.
+          </p>
+          <div class="product-attributes">
+            <div class="product-attr">
+              <div class="product-attr-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              </div>
+              <span><strong>Origin:</strong> Malawi — Shire Highlands &amp; Mulanje Region</span>
+            </div>
+            <div class="product-attr">
+              <div class="product-attr-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/></svg>
+              </div>
+              <span><strong>Available as:</strong> Whole bean, ground, and bulk supply</span>
+            </div>
+            <div class="product-attr">
+              <div class="product-attr-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <span><strong>Certification:</strong> Naturally farmed, traceable supply chain</span>
+            </div>
+          </div>
+          <div class="product-cta-row">
+            <a href="#contact" class="product-btn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Enquire Now
+            </a>
+            <a href="#contact" class="product-btn outline">Request Samples</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card fade-up stagger-2">
+        <div class="product-img-wrap">
+
+          <!-- IMAGE SLOT — TEA -->
+          <!-- Replace src below with your tea product image -->
+          <img
+            src="itea.jpg"
+            alt="iFarm Tea — Premium Malawian tea"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+
+          <div class="product-badge light">Tea</div>
+        </div>
+
+        <div class="product-body">
+          <div class="product-name">Malawian Tea</div>
+          <p class="product-desc">
+            Malawi is home to some of Africa's finest tea estates. Our tea leaves are
+            harvested from the lush green slopes of the Southern Highlands — full-bodied,
+            bright in colour, and rich in antioxidants. Supplied to retailers, hotels,
+            and distributors locally and internationally.
+          </p>
+          <div class="product-attributes">
+            <div class="product-attr">
+              <div class="product-attr-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              </div>
+              <span><strong>Origin:</strong> Thyolo &amp; Mulanje Tea Estates, Malawi</span>
+            </div>
+            <div class="product-attr">
+              <div class="product-attr-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/></svg>
+              </div>
+              <span><strong>Available as:</strong> Loose leaf, tea bags, and bulk export</span>
+            </div>
+            <div class="product-attr">
+              <div class="product-attr-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <span><strong>Grade:</strong> BOP, BOPF, Pekoe &amp; Green varieties</span>
+            </div>
+          </div>
+          <div class="product-cta-row">
+            <a href="#contact" class="product-btn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Enquire Now
+            </a>
+            <a href="#contact" class="product-btn outline">Request Samples</a>
+          </div>
+        </div>
+      </div>
+      <!-- ════════════════ END PRODUCT 2 — TEA ════════════════ -->
+
+    </div>
+
+    <!-- BOTTOM TAGLINE STRIPE -->
+    <div class="products-tagline fade-up">
+      <p>
+        Interested in bulk supply, retail partnerships, or<br/>
+        <span>export enquiries?</span> We'd love to talk.
+      </p>
+      <a href="#contact" class="product-btn" style="background: var(--light-green); color: var(--dark-green); font-size: 15px; padding: 13px 28px; white-space: nowrap;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        Contact Our Team
+      </a>
+    </div>
+
   </div>
 </section>
 

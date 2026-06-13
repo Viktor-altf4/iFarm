@@ -1148,7 +1148,7 @@
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
           </div>
           <h4>Message Sent!</h4>
-          <p id="success-detail">Your email client should have opened. We'll get back to you within 1 business day.</p>
+          <p id="success-detail">We'll get back to you within 1 business day.</p>
           <button onclick="resetForm()" style="margin-top:16px;background:none;border:1px solid var(--light-green);color:var(--dark-green);font-family:'Plus Jakarta Sans';font-size:13px;font-weight:600;padding:9px 20px;border-radius:100px;cursor:pointer;">Send Another</button>
         </div>
       </div>
@@ -1357,7 +1357,7 @@
       `Message:\n${message}\n\n---\nSent via iFarm Tech Limited website contact form.`
     );
 
-    const mailtoLink = `mailto:info@ifarmtech.mw?subject=${subject}&body=${body}`;
+    const mailtoLink = `mailto:ifarmtechmw@gmail.com?subject=${subject}&body=${body}`;
 
     // Disable button temporarily
     const btn = document.querySelector('.form-submit-btn');
@@ -1372,7 +1372,7 @@
       const succ = document.getElementById('form-success');
       succ.style.display = 'block';
       document.getElementById('success-detail').textContent =
-        `Your email client should have opened with a pre-filled message to info@ifarmtech.mw. We'll be in touch within 1 business day.`;
+        `We'll be in touch within 1 business day.`;
       showToast('Email client opened successfully!');
     }, 800);
   }

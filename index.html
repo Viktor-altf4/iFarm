@@ -40,6 +40,95 @@
   .nav-cta { background: var(--dark-green); color: var(--pearl) !important; opacity: 1 !important; padding: 9px 22px; border-radius: 100px; font-weight: 600 !important; transition: background 0.2s !important; }
   .nav-cta:hover { background: var(--mid-green) !important; }
 
+  /* ── MOBILE NAV TOGGLE (hamburger) ── */
+  .nav-toggle {
+    display: none;
+    width: 44px; height: 44px;
+    background: none; border: none; cursor: pointer;
+    padding: 0; flex-shrink: 0;
+    position: relative; z-index: 201;
+    align-items: center; justify-content: center;
+  }
+  .nav-toggle-box { width: 22px; height: 16px; position: relative; }
+  .nav-toggle-bar {
+    position: absolute; left: 0; width: 100%; height: 2px;
+    background: var(--dark-green); border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease, top 0.3s ease;
+  }
+  .nav-toggle-bar:nth-child(1) { top: 0; }
+  .nav-toggle-bar:nth-child(2) { top: 7px; }
+  .nav-toggle-bar:nth-child(3) { top: 14px; }
+  .nav-toggle.open .nav-toggle-bar:nth-child(1) { top: 7px; transform: rotate(45deg); }
+  .nav-toggle.open .nav-toggle-bar:nth-child(2) { opacity: 0; }
+  .nav-toggle.open .nav-toggle-bar:nth-child(3) { top: 7px; transform: rotate(-45deg); }
+
+  /* ── MOBILE NAV PANEL ── */
+  .mobile-nav-overlay {
+    display: none;
+    position: fixed; inset: 0; z-index: 199;
+    background: rgba(10,66,38,0.45);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .mobile-nav-overlay.open { display: block; opacity: 1; }
+
+  .mobile-nav-panel {
+    position: fixed; top: 0; right: 0; bottom: 0; z-index: 200;
+    width: min(86vw, 360px);
+    background: var(--pearl);
+    box-shadow: -12px 0 40px rgba(10,66,38,0.18);
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    display: flex; flex-direction: column;
+    padding: 88px 8px 28px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .mobile-nav-panel.open { transform: translateX(0); }
+
+  .mobile-nav-links { list-style: none; display: flex; flex-direction: column; gap: 2px; padding: 0 24px; }
+  .mobile-nav-links li { border-bottom: 1px solid rgba(10,66,38,0.07); }
+  .mobile-nav-links li:last-of-type { border-bottom: none; }
+  .mobile-nav-links a {
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 19px; font-weight: 600; color: var(--dark-green);
+    text-decoration: none; padding: 18px 4px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .mobile-nav-links a svg { opacity: 0.35; flex-shrink: 0; transition: transform 0.2s; }
+  .mobile-nav-links a:active svg { transform: translateX(3px); opacity: 0.7; }
+
+  .mobile-nav-cta-wrap { padding: 20px 24px 0; margin-top: 12px; }
+  .mobile-nav-cta {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    width: 100%; background: var(--dark-green); color: var(--pearl);
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; font-weight: 700;
+    padding: 16px 0; border-radius: 100px; text-decoration: none;
+    transition: background 0.2s;
+  }
+  .mobile-nav-cta:active { background: var(--mid-green); }
+
+  .mobile-nav-close {
+    position: absolute; top: 18px; right: 20px;
+    width: 40px; height: 40px; border-radius: 50%;
+    background: rgba(10,66,38,0.06); border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .mobile-nav-footer {
+    margin-top: auto; padding: 24px 24px 4px;
+    border-top: 1px solid rgba(10,66,38,0.07);
+  }
+  .mobile-nav-footer p {
+    font-family: 'DM Sans', sans-serif; font-size: 12px;
+    color: var(--text-muted); line-height: 1.6;
+  }
+
+  /* Prevent background scroll while mobile menu is open */
+  body.mobile-nav-locked { overflow: hidden; height: 100%; }
+
   /* ── HERO ── */
   .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 120px 48px 80px; }
   .hero-blob-tl { position: absolute; top: -80px; right: -60px; width: 420px; height: 420px; background: linear-gradient(145deg, var(--light-green) 0%, var(--shade-1) 100%); border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%; opacity: 0.35; animation: morphBlob 8s ease-in-out infinite; }
@@ -71,6 +160,326 @@
   .section-title { font-size: clamp(32px,4vw,52px); font-weight: 800; letter-spacing: -1.5px; line-height: 1.1; color: var(--dark-green); margin-bottom: 20px; }
   .section-title span { color: var(--light-green); }
   .section-desc { font-family: 'DM Sans', sans-serif; font-size: 17px; line-height: 1.7; color: var(--text-muted); max-width: 580px; }
+
+    /* ── FOUNDERS SECTION ── */
+  #founders {
+    background: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #founders .founders-blob-tl {
+    position: absolute;
+    top: -60px; left: -80px;
+    width: 320px; height: 320px;
+    background: var(--pale-green);
+    border-radius: 55% 45% 40% 60% / 40% 60% 55% 45%;
+    opacity: 0.45;
+  }
+
+  #founders .founders-blob-br {
+    position: absolute;
+    bottom: -80px; right: -60px;
+    width: 260px; height: 260px;
+    background: linear-gradient(145deg, var(--pale-green), rgba(154,204,91,0.15));
+    border-radius: 40% 60% 55% 45% / 60% 40% 45% 55%;
+    opacity: 0.5;
+  }
+
+  .founders-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* FOUNDERS GRID — 2 founders default, adjust as needed */
+  .founders-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-top: 56px;
+  }
+
+  /* FOUNDER CARD */
+  .founder-card {
+    border: 1px solid rgba(10,66,38,0.08);
+    border-radius: 28px;
+    overflow: hidden;
+    background: var(--pearl);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .founder-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 48px rgba(10,66,38,0.1);
+  }
+
+  /* ── IMAGE SLOT ── */
+  .founder-img-wrap {
+    width: 100%;
+    height: 340px;
+    overflow: hidden;
+    background: var(--pale-green);
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .founder-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top; /* keeps face visible — adjust if needed */
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .founder-card:hover .founder-img-wrap img {
+    transform: scale(1.03);
+  }
+
+  /* Placeholder shown until a real image is provided */
+  .founder-img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    color: var(--mid-green);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    padding: 24px;
+  }
+
+  .founder-img-placeholder .placeholder-initials {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: rgba(10,66,38,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--dark-green);
+    letter-spacing: -0.5px;
+  }
+
+  .founder-img-placeholder .placeholder-hint {
+    font-size: 11px;
+    font-family: monospace;
+    color: var(--mid-green);
+    opacity: 0.6;
+    background: rgba(10,66,38,0.07);
+    padding: 4px 10px;
+    border-radius: 8px;
+  }
+
+  /* ROLE BADGE — top-right overlay on the photo */
+  .founder-role-badge {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    background: var(--dark-green);
+    color: var(--pearl);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+  }
+
+  /* CARD BODY */
+  .founder-body {
+    padding: 28px 32px 32px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .founder-name {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.7px;
+    color: var(--dark-green);
+    margin-bottom: 4px;
+  }
+
+  .founder-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--light-green);
+    letter-spacing: 0.2px;
+    margin-bottom: 20px;
+  }
+
+  /* Divider */
+  .founder-divider {
+    width: 40px;
+    height: 3px;
+    background: var(--light-green);
+    border-radius: 2px;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+  }
+
+  .founder-bio {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    flex: 1;
+  }
+
+  /* FOUNDER HIGHLIGHTS — key facts */
+  .founder-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 28px;
+    padding: 20px;
+    background: white;
+    border-radius: 16px;
+    border: 1px solid rgba(10,66,38,0.07);
+  }
+
+  .founder-highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .founder-highlight-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: var(--pale-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .founder-highlight-item strong {
+    color: var(--dark-green);
+    font-weight: 600;
+    margin-right: 4px;
+  }
+
+  /* SOCIAL / CONTACT LINKS */
+  .founder-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .founder-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--dark-green);
+    text-decoration: none;
+    border: 1.5px solid rgba(10,66,38,0.2);
+    padding: 8px 16px;
+    border-radius: 100px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .founder-link:hover {
+    background: var(--pale-green);
+    border-color: var(--light-green);
+  }
+
+  .founder-link.primary {
+    background: var(--dark-green);
+    color: var(--pearl);
+    border-color: var(--dark-green);
+  }
+
+  .founder-link.primary:hover {
+    background: var(--mid-green);
+    border-color: var(--mid-green);
+  }
+
+  /* BOTTOM QUOTE STRIP */
+  .founders-quote {
+    margin-top: 52px;
+    background: var(--dark-green);
+    border-radius: 24px;
+    padding: 40px 48px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .founders-quote-icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(154,204,91,0.18);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .founders-quote blockquote {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--pearl);
+    line-height: 1.45;
+    letter-spacing: -0.3px;
+    font-style: normal;
+    margin-bottom: 10px;
+  }
+
+  .founders-quote blockquote span {
+    color: var(--light-green);
+  }
+
+  .founders-quote cite {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(252,252,247,0.5);
+    font-style: normal;
+    letter-spacing: 0.3px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .founders-grid { grid-template-columns: 1fr; }
+    .founder-img-wrap { height: 300px; }
+    .founders-quote { grid-template-columns: 1fr; gap: 20px; padding: 28px 28px; }
+    .founders-quote blockquote { font-size: 17px; }
+  }
+
+  @media (max-width: 640px) {
+    .founder-body { padding: 22px 24px 26px; }
+    .founder-name { font-size: 22px; }
+    .founders-quote { padding: 22px 20px; }
+  }
 
   /* ── ABOUT ── */
   #about { background: white; position: relative; overflow: hidden; }
@@ -409,7 +818,10 @@
     .modal-footer { padding: 16px 28px; }
   }
   @media (max-width: 640px) {
+    nav { padding: 0 16px; }
+    .nav-toggle { display: flex; }
     .nav-links { display: none; }
+    .nav-logo-text .brand-tagline { display: none; }
     .hero h1 { letter-spacing: -1px; }
     .vision-grid, .services-grid, .voice-grid { grid-template-columns: 1fr; }
     .logo-variations { grid-template-columns: 1fr; }
@@ -437,12 +849,88 @@
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#founders">Our Team</a></li>
     <li><a href="#services">Services</a></li>
+    <li><a href="#products">Products</a></li>
     <li><a href="#vision">Mission</a></li>
     <li><a href="#voice">Our Voice</a></li>
+    <li><a href="#logo">Brand</a></li>
     <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
   </ul>
+
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNavPanel" onclick="toggleMobileNav()">
+    <span class="nav-toggle-box">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </span>
+  </button>
 </nav>
+
+<!-- ═══════════════════════════════════════════ MOBILE NAV ═══════════════════════════════════════════ -->
+<div class="mobile-nav-overlay" id="mobileNavOverlay" onclick="closeMobileNav()"></div>
+
+<div class="mobile-nav-panel" id="mobileNavPanel" role="navigation" aria-label="Mobile" aria-hidden="true">
+  <button class="mobile-nav-close" aria-label="Close menu" onclick="closeMobileNav()">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+
+  <ul class="mobile-nav-links">
+    <li>
+      <a href="#about" onclick="closeMobileNav()">
+        About
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </li>
+    <li>
+      <a href="#founders" onclick="closeMobileNav()">
+        Our Team
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </li>
+    <li>
+      <a href="#products" onclick="closeMobileNav()">
+        Products
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </li>
+    <li>
+      <a href="#services" onclick="closeMobileNav()">
+        Services
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </li>
+    <li>
+      <a href="#vision" onclick="closeMobileNav()">
+        Mission
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </li>
+    <li>
+      <a href="#voice" onclick="closeMobileNav()">
+        Our Voice
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </li>
+    <li>
+      <a href="#logo" onclick="closeMobileNav()">
+        Brand
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </li>
+  </ul>
+
+  <div class="mobile-nav-cta-wrap">
+    <a href="#contact" class="mobile-nav-cta" onclick="closeMobileNav()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Get in Touch
+    </a>
+  </div>
+
+  <div class="mobile-nav-footer">
+    <p>iFarm Tech Limited<br/>Smart Farming. Stronger Malawi.</p>
+  </div>
+</div>
 
 <!-- ═══════════════════════════════════════════ HERO ═══════════════════════════════════════════ -->
 <section class="hero" id="home">
@@ -507,6 +995,216 @@
       <p class="section-desc" style="margin-bottom: 28px;">iFarmTech Ltd. is an innovative Malawian company operating at the intersection of agriculture and technology. We are dedicated to producing agricultural products while simultaneously building a comprehensive tech platform to connect and empower Malawi's entire agriculture economy.</p>
       <p class="section-desc">Our distinctive strategy begins with hands-on farming and small-scale agro-processing, allowing us to generate revenue and gather crucial real-world data from the ground up — developing tailored software solutions that scale productivity, enhance market access, and improve financing opportunities for farmers in Malawi and beyond.</p>
     </div>
+  </div>
+</section>
+
+<section id="founders">
+  <div class="founders-blob-tl"></div>
+  <div class="founders-blob-br"></div>
+
+  <div class="founders-inner">
+
+    <div class="section-label fade-up">Meet the Team</div>
+    <h2 class="section-title fade-up stagger-1">The <span>Founders</span><br/>Behind iFarm.</h2>
+    <p class="section-desc fade-up stagger-2">
+      Built by people who believe in Malawi's agricultural potential.
+      Our founders combine deep roots in technology, business, and the land itself.
+    </p>
+
+    <div class="founders-grid">
+
+
+      <!-- ════════════════════════════════════════════
+           FOUNDER 1
+           ─────────────────────────────────────────
+           TO REPLACE THE PHOTO:
+             Change src="YOUR_PHOTO_HERE.jpg" below
+             to your image file, e.g. src="images/founder-1.jpg"
+             Update alt="..." to the founder's full name.
+           TO EDIT DETAILS:
+             Update .founder-name, .founder-title, .founder-bio,
+             and the highlight items below.
+      ════════════════════════════════════════════ -->
+      <div class="founder-card fade-up stagger-1">
+
+        <div class="founder-img-wrap">
+
+          <!-- IMAGE SLOT — FOUNDER 1 -->
+          <!-- Replace src below with the founder's photo -->
+          <img
+            src="YOUR_PHOTO_HERE.jpg"
+            alt="Founder 1 name — iFarm Tech Limited"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <!-- Placeholder — auto-hides when a real image loads -->
+          <div class="founder-img-placeholder">
+            <div class="placeholder-initials">F1</div>
+            <span>Replace with founder's photo</span>
+            <span class="placeholder-hint">src="YOUR_PHOTO_HERE.jpg"</span>
+          </div>
+          <!-- END IMAGE SLOT — FOUNDER 1 -->
+
+          <div class="founder-role-badge">Co-Founder &amp; CEO</div>
+        </div>
+
+        <div class="founder-body">
+          <div class="founder-name">Founder Name Here</div>
+          <div class="founder-title">Co-Founder &amp; Chief Executive Officer</div>
+          <div class="founder-divider"></div>
+          <p class="founder-bio">
+            <!-- Edit this bio text to match the founder's background -->
+            A visionary leader with deep roots in Malawian agriculture and technology.
+            Passionate about connecting smallholder farmers to modern tools and digital
+            markets, driving the transformation of Malawi's agricultural economy from
+            the ground up.
+          </p>
+          <div class="founder-highlights">
+            <!-- Edit or add/remove highlight items as needed -->
+            <div class="founder-highlight-item">
+              <div class="founder-highlight-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              </div>
+              <span><strong>Education:</strong> Add degree / institution here</span>
+            </div>
+            <div class="founder-highlight-item">
+              <div class="founder-highlight-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              </div>
+              <span><strong>Background:</strong> Add experience or expertise here</span>
+            </div>
+            <div class="founder-highlight-item">
+              <div class="founder-highlight-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <span><strong>Based in:</strong> Blantyre, Malawi</span>
+            </div>
+          </div>
+          <div class="founder-links">
+            <!-- Update href to real links or remove what isn't needed -->
+            <a href="mailto:founder1@ifarmtech.mw" class="founder-link primary">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Email
+            </a>
+            <a href="https://linkedin.com/in/YOURHANDLE" target="_blank" rel="noopener" class="founder-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://twitter.com/YOURHANDLE" target="_blank" rel="noopener" class="founder-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+              Twitter / X
+            </a>
+          </div>
+        </div>
+
+      </div>
+      <!-- ════════════════ END FOUNDER 1 ════════════════ -->
+
+
+      <!-- ════════════════════════════════════════════
+           FOUNDER 2
+           ─────────────────────────────────────────
+           TO REPLACE THE PHOTO:
+             Change src="YOUR_PHOTO_HERE.jpg" below
+             to your image file, e.g. src="images/founder-2.jpg"
+             Update alt="..." to the founder's full name.
+           TO EDIT DETAILS:
+             Update .founder-name, .founder-title, .founder-bio,
+             and the highlight items below.
+      ════════════════════════════════════════════ -->
+      <div class="founder-card fade-up stagger-2">
+
+        <div class="founder-img-wrap">
+
+          <!-- IMAGE SLOT — FOUNDER 2 -->
+          <!-- Replace src below with the founder's photo -->
+          <img
+            src="YOUR_PHOTO_HERE.jpg"
+            alt="Founder 2 name — iFarm Tech Limited"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <!-- Placeholder — auto-hides when a real image loads -->
+          <div class="founder-img-placeholder">
+            <div class="placeholder-initials">F2</div>
+            <span>Replace with founder's photo</span>
+            <span class="placeholder-hint">src="YOUR_PHOTO_HERE.jpg"</span>
+          </div>
+          <!-- END IMAGE SLOT — FOUNDER 2 -->
+
+          <div class="founder-role-badge">Co-Founder &amp; CTO</div>
+        </div>
+
+        <div class="founder-body">
+          <div class="founder-name">Founder Name Here</div>
+          <div class="founder-title">Co-Founder &amp; Chief Technology Officer</div>
+          <div class="founder-divider"></div>
+          <p class="founder-bio">
+            <!-- Edit this bio text to match the founder's background -->
+            A technology architect and agri-data strategist dedicated to building
+            digital infrastructure for Malawi's farming sector. Leads the development
+            of iFarm's tech platform — from precision agriculture tools to real-time
+            market data systems connecting farmers to opportunity.
+          </p>
+          <div class="founder-highlights">
+            <!-- Edit or add/remove highlight items as needed -->
+            <div class="founder-highlight-item">
+              <div class="founder-highlight-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              </div>
+              <span><strong>Education:</strong> Add degree / institution here</span>
+            </div>
+            <div class="founder-highlight-item">
+              <div class="founder-highlight-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <span><strong>Expertise:</strong> Add technical skills or field here</span>
+            </div>
+            <div class="founder-highlight-item">
+              <div class="founder-highlight-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <span><strong>Based in:</strong> Blantyre, Malawi</span>
+            </div>
+          </div>
+          <div class="founder-links">
+            <!-- Update href to real links or remove what isn't needed -->
+            <a href="mailto:founder2@ifarmtech.mw" class="founder-link primary">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Email
+            </a>
+            <a href="https://linkedin.com/in/YOURHANDLE" target="_blank" rel="noopener" class="founder-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://twitter.com/YOURHANDLE" target="_blank" rel="noopener" class="founder-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+              Twitter / X
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="founders-quote fade-up">
+      <div class="founders-quote-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#9ACC5B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+          <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+        </svg>
+      </div>
+      <div>
+        <blockquote>
+          <!-- Edit this quote — use <span> to highlight key words in green -->
+          "We started iFarm because we saw <span>Malawi's farmers working hard</span>
+          with tools that weren't working for them. Technology should change that —
+          and we're here to make sure it does."
+        </blockquote>
+        <!-- Update attribution to a real founder name and title -->
+        <cite>— Founder Name, Co-Founder &amp; CEO, iFarm Tech Limited</cite>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -760,19 +1458,8 @@
     </p>
 
     <div class="products-grid">
-
-      <!-- ════════════════════════════════════
-           PRODUCT 1 — COFFEE
-           To replace the image:
-             1. Find the <img> tag below.
-             2. Change src="YOUR_IMAGE_HERE.jpg" to your coffee image path.
-             3. Update alt="..." to describe your actual image.
-      ════════════════════════════════════ -->
       <div class="product-card fade-up stagger-1">
         <div class="product-img-wrap">
-
-          <!-- IMAGE SLOT — COFFEE -->
-          <!-- Replace src below with your coffee product image -->
           <img
             src="icoffee.jpg"
             alt="iFarm Coffee — Premium Malawian coffee"
@@ -1160,7 +1847,7 @@
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
-      <svg width="30" height="36" viewBox="0 0 74 110" fill="none"><path d="M37 110 C18 110 8 93 8 72 L8 46 Q8 26 37 26 Q66 26 66 46 L66 72 C66 93 56 110 37 110Z" fill="#9ACC5B"/><path d="M37 30 C37 30 16 12 24 2 C32 -6 60 6 60 26 C60 42 37 48 37 30Z" fill="white"/></svg>
+      <img src="Logos/SVG/3.svg" alt="iFarm Logo" width="40" height="40" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
       <div class="footer-brand-text">
         <div class="fn">iFarm Tech Limited</div>
         <div class="ft">Smart Farming. Stronger Malawi.</div>
@@ -1171,6 +1858,8 @@
         <h5>Company</h5>
         <ul>
           <li><a href="#about">About Us</a></li>
+          <li><a href="#founders">Our Team</a></li>
+          <li><a href="#products">Products</a></li>
           <li><a href="#vision">Our Mission</a></li>
           <li><a href="#voice">Brand Voice</a></li>
           <li><a href="#logo">Identity</a></li>
@@ -1295,6 +1984,32 @@
       setTimeout(() => observer.observe(el), 10);
     });
   }
+
+  /* ── MOBILE NAV ── */
+  function toggleMobileNav() {
+    const panel = document.getElementById('mobileNavPanel');
+    if (panel.classList.contains('open')) closeMobileNav(); else openMobileNav();
+  }
+  function openMobileNav() {
+    document.getElementById('mobileNavPanel').classList.add('open');
+    document.getElementById('mobileNavOverlay').classList.add('open');
+    document.getElementById('navToggle').classList.add('open');
+    document.getElementById('navToggle').setAttribute('aria-expanded', 'true');
+    document.getElementById('navToggle').setAttribute('aria-label', 'Close menu');
+    document.getElementById('mobileNavPanel').setAttribute('aria-hidden', 'false');
+    document.body.classList.add('mobile-nav-locked');
+  }
+  function closeMobileNav() {
+    document.getElementById('mobileNavPanel').classList.remove('open');
+    document.getElementById('mobileNavOverlay').classList.remove('open');
+    document.getElementById('navToggle').classList.remove('open');
+    document.getElementById('navToggle').setAttribute('aria-expanded', 'false');
+    document.getElementById('navToggle').setAttribute('aria-label', 'Open menu');
+    document.getElementById('mobileNavPanel').setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('mobile-nav-locked');
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileNav(); });
+  window.addEventListener('resize', () => { if (window.innerWidth > 640) closeMobileNav(); });
 
   /* ── LEGAL MODAL ── */
   function openLegalModal() {

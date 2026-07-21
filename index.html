@@ -4,7 +4,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>iFarm Tech Limited — Smart Farming. Stronger Malawi.</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- Preconnect to Google Fonts for faster loading -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Drop weight 300 (demo-only) and load only weights used in actual UI -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- SEO meta tags -->
+<meta name="description" content="iFarm Tech Limited — Malawi's AgriTech pioneer combining smart farming, IT solutions, and legal support. Empowering farmers with real-time data and precision technology.">
+<meta name="keywords" content="iFarm, smart farming, Malawi agriculture, AgriTech, IT solutions, legal support Malawi, iFarm Tech Limited">
+<meta name="author" content="iFarm Tech Limited">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph (Facebook, WhatsApp, LinkedIn previews) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="iFarm Tech Limited — Smart Farming. Stronger Malawi.">
+<meta property="og:description" content="Empowering Malawi's farmers with technology, real-time data, and precision solutions to grow more, earn more, and connect to the world.">
+<meta property="og:image" content="smartfarming.jpg">
+<meta property="og:url" content="https://ifarmtech.mw">
+<meta property="og:site_name" content="iFarm Tech Limited">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="iFarm Tech Limited — Smart Farming. Stronger Malawi.">
+<meta name="twitter:description" content="Empowering Malawi's farmers with technology, real-time data, and digital tools.">
+<meta name="twitter:image" content="smartfarming.jpg">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
@@ -19,6 +43,10 @@
     --text-muted: #52515D;
   }
   html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
   body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--pearl); color: var(--black); overflow-x: hidden; }
 
   /* ── NAV ── */
@@ -131,8 +159,8 @@
 
   /* ── HERO ── */
   .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 120px 48px 80px; }
-  .hero-blob-tl { position: absolute; top: -80px; right: -60px; width: 420px; height: 420px; background: linear-gradient(145deg, var(--light-green) 0%, var(--shade-1) 100%); border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%; opacity: 0.35; animation: morphBlob 8s ease-in-out infinite; }
-  .hero-blob-br { position: absolute; bottom: -100px; left: -80px; width: 360px; height: 360px; background: linear-gradient(145deg, var(--pale-green) 0%, var(--shade-2) 100%); border-radius: 40% 60% 30% 70% / 60% 40% 50% 50%; opacity: 0.5; animation: morphBlob 10s ease-in-out infinite reverse; }
+  .hero-blob-tl { position: absolute; top: -80px; right: -60px; width: 420px; height: 420px; background: linear-gradient(145deg, var(--light-green) 0%, var(--shade-1) 100%); border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%; opacity: 0.35; animation: morphBlob 8s ease-in-out infinite; will-change: border-radius; }
+  .hero-blob-br { position: absolute; bottom: -100px; left: -80px; width: 360px; height: 360px; background: linear-gradient(145deg, var(--pale-green) 0%, var(--shade-2) 100%); border-radius: 40% 60% 30% 70% / 60% 40% 50% 50%; opacity: 0.5; animation: morphBlob 10s ease-in-out infinite reverse; will-change: border-radius; }
   @keyframes morphBlob { 0%,100%{border-radius:60% 40% 70% 30%/50% 60% 40% 50%} 33%{border-radius:40% 60% 50% 50%/30% 60% 40% 70%} 66%{border-radius:50% 50% 40% 60%/60% 40% 70% 30%} }
   .hero-content { position: relative; z-index: 2; max-width: 640px; }
   .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mid-green); background: rgba(154,204,91,0.15); padding: 6px 14px; border-radius: 100px; margin-bottom: 28px; }
@@ -475,13 +503,6 @@
     .founders-quote blockquote { font-size: 17px; }
   }
 
-  @media (max-width: 640px) {
-    .founder-body { padding: 22px 24px 26px; }
-    .founder-name { font-size: 22px; }
-    .founders-quote { padding: 22px 20px; }
-  }
-
-  /* ── ABOUT ── */
   #about { background: white; position: relative; overflow: hidden; }
   #about .about-blob { position: absolute; top: -60px; right: -80px; width: 300px; height: 300px; background: var(--pale-green); border-radius: 50% 70% 40% 60% / 60% 40% 70% 50%; opacity: 0.6; }
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
@@ -790,8 +811,8 @@
   .toast.show { transform: translateY(0); opacity: 1; }
 
   /* ── ANIMATIONS ── */
-  .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
-  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; will-change: opacity, transform; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); will-change: auto; }
   .stagger-1 { transition-delay: 0.1s; }
   .stagger-2 { transition-delay: 0.2s; }
   .stagger-3 { transition-delay: 0.3s; }
@@ -833,6 +854,9 @@
     .modal-header { padding: 20px 20px; }
     .modal-body { padding: 20px 20px 24px; }
     .modal-footer { padding: 14px 20px; }
+    .founder-body { padding: 22px 24px 26px; }
+    .founder-name { font-size: 22px; }
+    .founders-quote { padding: 22px 20px; }
   }
 </style>
 </head>
@@ -841,7 +865,7 @@
 <!-- ═══════════════════════════════════════════ NAV ═══════════════════════════════════════════ -->
 <nav>
   <a class="nav-logo" href="#">
-    <img src="Logos/SVG/5.svg" alt="Company Logo" width="20" height="50">
+    <img src="Logos/SVG/5.svg" alt="Company Logo" width="20" height="50" loading="eager" decoding="sync">
     <div class="nav-logo-text">
       <span class="brand-name">iFarm Tech Limited</span>
       <span class="brand-tagline">Smart Farming. Stronger Malawi.</span>
@@ -850,8 +874,8 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#founders">Our Team</a></li>
-    <li><a href="#services">Services</a></li>
     <li><a href="#products">Products</a></li>
+    <li><a href="#services">Services</a></li>
     <li><a href="#vision">Mission</a></li>
     <li><a href="#voice">Our Voice</a></li>
     <li><a href="#logo">Brand</a></li>
@@ -983,7 +1007,7 @@
   <div class="about-blob"></div>
   <div class="about-grid">
     <div class="about-image-frame fade-up">
-      <img src="smartfarming.jpg" alt="Malawi farmer in greenhouse" style="filter: saturate(1.05);" />
+      <img src="smartfarming.jpg" alt="Malawi farmer in greenhouse" loading="lazy" decoding="async" style="filter: saturate(1.05);" />
       <div class="about-image-badge">
         <div class="badge-number">2024</div>
         <div class="badge-text">Founded in Malawi</div>
@@ -1014,63 +1038,47 @@
     <div class="founders-grid">
 
 
-      <!-- ════════════════════════════════════════════
-           FOUNDER 1
-           ─────────────────────────────────────────
-           TO REPLACE THE PHOTO:
-             Change src="YOUR_PHOTO_HERE.jpg" below
-             to your image file, e.g. src="images/founder-1.jpg"
-             Update alt="..." to the founder's full name.
-           TO EDIT DETAILS:
-             Update .founder-name, .founder-title, .founder-bio,
-             and the highlight items below.
-      ════════════════════════════════════════════ -->
+      <!-- ════════════════ FOUNDER 1 — DUDLEY SAMUEL KANJIRA ════════════════ -->
       <div class="founder-card fade-up stagger-1">
 
         <div class="founder-img-wrap">
-
-          <!-- IMAGE SLOT — FOUNDER 1 -->
-          <!-- Replace src below with the founder's photo -->
+          <!-- IMAGE SLOT — DUDLEY KANJIRA -->
+          <!-- Replace src below with Dudley's photo when available -->
           <img
-            src="YOUR_PHOTO_HERE.jpg"
-            alt="Founder 1 name — iFarm Tech Limited"
+            src="Sam.jpg"
+            alt="Dudley Samuel Kanjira — CEO &amp; Founder, iFarm Tech Limited"
+            loading="lazy" decoding="async"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
           />
           <!-- Placeholder — auto-hides when a real image loads -->
           <div class="founder-img-placeholder">
-            <div class="placeholder-initials">F1</div>
-            <span>Replace with founder's photo</span>
+            <div class="placeholder-initials">DSK</div>
+            <span>Replace with Dudley's photo</span>
             <span class="placeholder-hint">src="YOUR_PHOTO_HERE.jpg"</span>
           </div>
-          <!-- END IMAGE SLOT — FOUNDER 1 -->
-
-          <div class="founder-role-badge">Co-Founder &amp; CEO</div>
+          <!-- END IMAGE SLOT — DUDLEY -->
+          <div class="founder-role-badge">CEO &amp; Founder</div>
         </div>
 
         <div class="founder-body">
-          <div class="founder-name">Founder Name Here</div>
-          <div class="founder-title">Co-Founder &amp; Chief Executive Officer</div>
+          <div class="founder-name">Dudley Samuel Kanjira</div>
+          <div class="founder-title">CEO &amp; Founder — iFarm Tech Limited</div>
           <div class="founder-divider"></div>
           <p class="founder-bio">
-            <!-- Edit this bio text to match the founder's background -->
-            A visionary leader with deep roots in Malawian agriculture and technology.
-            Passionate about connecting smallholder farmers to modern tools and digital
-            markets, driving the transformation of Malawi's agricultural economy from
-            the ground up.
+            Dudley Samuel Kanjira is a software developer and entrepreneur with a passion for technology, innovation, and sustainable agricultural solutions. As Founder and CEO of iFarm Tech Limited, he leads the development of technology-driven solutions aimed at solving real-world challenges in agriculture and business. His background spans software development, data analysis, networking, and information systems — with a long-term vision of building iFarm into one of Africa's leading technology and agricultural innovation companies.
           </p>
           <div class="founder-highlights">
-            <!-- Edit or add/remove highlight items as needed -->
             <div class="founder-highlight-item">
               <div class="founder-highlight-icon">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
               </div>
-              <span><strong>Education:</strong> Add degree / institution here</span>
+              <span><strong>Education:</strong> BMIS — Malawi College of Accountancy (Expected 2028); BSc Statistics — University of Malawi</span>
             </div>
             <div class="founder-highlight-item">
               <div class="founder-highlight-icon">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
               </div>
-              <span><strong>Background:</strong> Add experience or expertise here</span>
+              <span><strong>Expertise:</strong> Software &amp; Mobile Dev, Web Development, Data Analysis, AgriTech, IT Infrastructure</span>
             </div>
             <div class="founder-highlight-item">
               <div class="founder-highlight-icon">
@@ -1080,18 +1088,17 @@
             </div>
           </div>
           <div class="founder-links">
-            <!-- Update href to real links or remove what isn't needed -->
-            <a href="mailto:founder1@ifarmtech.mw" class="founder-link primary">
+            <a href="mailto:ifarmtechmw@gmail.com" class="founder-link primary">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               Email
             </a>
-            <a href="https://linkedin.com/in/YOURHANDLE" target="_blank" rel="noopener" class="founder-link">
+            <a href="https://www.linkedin.com/in/dudleykanjira-576671265" target="_blank" rel="noopener" class="founder-link">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
               LinkedIn
             </a>
-            <a href="https://twitter.com/YOURHANDLE" target="_blank" rel="noopener" class="founder-link">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
-              Twitter / X
+            <a href="tel:+265885301696" class="founder-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.65 3.47 2 2 0 0 1 3.62 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              WhatsApp
             </a>
           </div>
         </div>
@@ -1100,88 +1107,69 @@
       <!-- ════════════════ END FOUNDER 1 ════════════════ -->
 
 
-      <!-- ════════════════════════════════════════════
-           FOUNDER 2
-           ─────────────────────────────────────────
-           TO REPLACE THE PHOTO:
-             Change src="YOUR_PHOTO_HERE.jpg" below
-             to your image file, e.g. src="images/founder-2.jpg"
-             Update alt="..." to the founder's full name.
-           TO EDIT DETAILS:
-             Update .founder-name, .founder-title, .founder-bio,
-             and the highlight items below.
-      ════════════════════════════════════════════ -->
+      <!-- ════════════════ FOUNDER 2 — MARTIN CHIRWA ════════════════ -->
       <div class="founder-card fade-up stagger-2">
 
         <div class="founder-img-wrap">
-
-          <!-- IMAGE SLOT — FOUNDER 2 -->
-          <!-- Replace src below with the founder's photo -->
+          <!-- IMAGE SLOT — MARTIN CHIRWA -->
+          <!-- Replace src below with Martin's photo when available -->
           <img
-            src="YOUR_PHOTO_HERE.jpg"
-            alt="Founder 2 name — iFarm Tech Limited"
+            src="Martin.jpg"
+            alt="Martin Chirwa — Legal Advisor &amp; Co-Founder, iFarm Tech Limited"
+            loading="lazy" decoding="async"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
           />
           <!-- Placeholder — auto-hides when a real image loads -->
           <div class="founder-img-placeholder">
-            <div class="placeholder-initials">F2</div>
-            <span>Replace with founder's photo</span>
+            <div class="placeholder-initials">MC</div>
+            <span>Replace with Martin's photo</span>
             <span class="placeholder-hint">src="YOUR_PHOTO_HERE.jpg"</span>
           </div>
-          <!-- END IMAGE SLOT — FOUNDER 2 -->
-
-          <div class="founder-role-badge">Co-Founder &amp; CTO</div>
+          <!-- END IMAGE SLOT — MARTIN -->
+          <div class="founder-role-badge">Legal Advisor &amp; Co-Founder</div>
         </div>
 
         <div class="founder-body">
-          <div class="founder-name">Founder Name Here</div>
-          <div class="founder-title">Co-Founder &amp; Chief Technology Officer</div>
+          <div class="founder-name">Martin Chirwa</div>
+          <div class="founder-title">Legal Advisor &amp; Corporate Governance Lead — Co-Founder &amp; Secretary</div>
           <div class="founder-divider"></div>
           <p class="founder-bio">
-            <!-- Edit this bio text to match the founder's background -->
-            A technology architect and agri-data strategist dedicated to building
-            digital infrastructure for Malawi's farming sector. Leads the development
-            of iFarm's tech platform — from precision agriculture tools to real-time
-            market data systems connecting farmers to opportunity.
+            Martin Chirwa is a legal practitioner with expertise in corporate and commercial law, regulatory compliance, contract advisory, and dispute resolution. A graduate of the University of Malawi and a Member of the Malawi Law Society, he provides iFarm Tech with legal guidance on governance structures, contracts, compliance frameworks, and partnerships — ensuring the organisation builds transparent, ethical, and sustainable solutions aligned with regulatory requirements.
           </p>
           <div class="founder-highlights">
-            <!-- Edit or add/remove highlight items as needed -->
             <div class="founder-highlight-item">
               <div class="founder-highlight-icon">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
               </div>
-              <span><strong>Education:</strong> Add degree / institution here</span>
+              <span><strong>Education:</strong> LLB (Hons) &amp; BA Humanities — University of Malawi, Chancellor College</span>
             </div>
             <div class="founder-highlight-item">
               <div class="founder-highlight-icon">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
               </div>
-              <span><strong>Expertise:</strong> Add technical skills or field here</span>
+              <span><strong>Experience:</strong> Legal Associate — Ritz Attorneys; Legal Practitioner — Kapoto &amp; Co.; Part-Time Lecturer, University of Malawi</span>
             </div>
             <div class="founder-highlight-item">
               <div class="founder-highlight-icon">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0A4226" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
-              <span><strong>Based in:</strong> Blantyre, Malawi</span>
+              <span><strong>Membership:</strong> Malawi Law Society (Admitted December 2024); Litigation Training — Webber Wentzel, South Africa</span>
             </div>
           </div>
           <div class="founder-links">
-            <!-- Update href to real links or remove what isn't needed -->
-            <a href="mailto:founder2@ifarmtech.mw" class="founder-link primary">
+            <a href="mailto:ifarmtechmw@gmail.com" class="founder-link primary">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               Email
             </a>
-            <a href="https://linkedin.com/in/YOURHANDLE" target="_blank" rel="noopener" class="founder-link">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-              LinkedIn
-            </a>
-            <a href="https://twitter.com/YOURHANDLE" target="_blank" rel="noopener" class="founder-link">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
-              Twitter / X
+            <a href="#contact" class="founder-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Legal Enquiry
             </a>
           </div>
         </div>
+
       </div>
+      <!-- ════════════════ END FOUNDER 2 ════════════════ -->
 
 
     </div>
@@ -1195,13 +1183,9 @@
       </div>
       <div>
         <blockquote>
-          <!-- Edit this quote — use <span> to highlight key words in green -->
-          "We started iFarm because we saw <span>Malawi's farmers working hard</span>
-          with tools that weren't working for them. Technology should change that —
-          and we're here to make sure it does."
+          "My vision is to build iFarm Tech Limited into <span>one of Africa's leading technology and agricultural innovation companies</span> — creating products that improve businesses, empower farmers, and contribute to economic growth."
         </blockquote>
-        <!-- Update attribution to a real founder name and title -->
-        <cite>— Founder Name, Co-Founder &amp; CEO, iFarm Tech Limited</cite>
+        <cite>— Dudley Samuel Kanjira, CEO &amp; Founder, iFarm Tech Limited</cite>
       </div>
     </div>
 
@@ -1461,7 +1445,7 @@
       <div class="product-card fade-up stagger-1">
         <div class="product-img-wrap">
           <img
-            src="icoffee.jpg"
+            src="icoffee.jpg" loading="lazy" decoding="async"
             alt="iFarm Coffee — Premium Malawian coffee"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
           />
@@ -1513,7 +1497,7 @@
           <!-- IMAGE SLOT — TEA -->
           <!-- Replace src below with your tea product image -->
           <img
-            src="itea.jpg"
+            src="itea.jpg" loading="lazy" decoding="async"
             alt="iFarm Tea — Premium Malawian tea"
             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
           />
@@ -1651,7 +1635,7 @@
     <h2 class="section-title fade-up stagger-1">Our <span>Logo.</span><br/>Anatomy &amp; Meaning.</h2>
     <div class="logo-anatomy">
       <div class="logo-display fade-up">
-        <img src="Logos/SVG/2.svg" alt="iFarm Logo" width="100" height="100">
+        <img src="Logos/SVG/2.svg" alt="iFarm Tech Limited logo mark" width="100" height="100" loading="lazy" decoding="async">
       </div>
       <div class="logo-parts fade-up stagger-2">
         <div class="logo-part">
@@ -1666,15 +1650,15 @@
     </div>
     <div class="logo-variations fade-up">
       <div class="logo-var light">
-        <img src="Logos/SVG/3.svg" alt="iFarm Logo" class="logo-img">
+        <img src="Logos/SVG/3.svg" alt="iFarm logo on light green background" class="logo-img" loading="lazy" decoding="async">
         <span class="logo-var-label">Light Background</span>
       </div>
       <div class="logo-var dark">
-        <img src="Logos/SVG/5.svg" alt="iFarm Logo" class="logo-img">
+        <img src="Logos/SVG/5.svg" alt="iFarm logo on dark green background" class="logo-img" loading="lazy" decoding="async">
         <span class="logo-var-label">Dark Background</span>
       </div>
       <div class="logo-var bw">
-        <img src="Logos/SVG/3.svg" alt="iFarm Logo" class="logo-img">
+        <img src="Logos/SVG/3.svg" alt="iFarm logo black and white" class="logo-img" loading="lazy" decoding="async">
         <span class="logo-var-label">Black &amp; White</span>
       </div>
     </div>
@@ -1847,7 +1831,7 @@
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
-      <img src="Logos/SVG/3.svg" alt="iFarm Logo" width="40" height="40" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+      <svg width="30" height="36" viewBox="0 0 74 110" fill="none"><path d="M37 110 C18 110 8 93 8 72 L8 46 Q8 26 37 26 Q66 26 66 46 L66 72 C66 93 56 110 37 110Z" fill="#9ACC5B"/><path d="M37 30 C37 30 16 12 24 2 C32 -6 60 6 60 26 C60 42 37 48 37 30Z" fill="white"/></svg>
       <div class="footer-brand-text">
         <div class="fn">iFarm Tech Limited</div>
         <div class="ft">Smart Farming. Stronger Malawi.</div>
@@ -1956,21 +1940,34 @@
   /* ── SCROLL ANIMATIONS ── */
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-  setTimeout(() => { document.querySelectorAll('.hero .fade-up').forEach(el => el.classList.add('visible')); }, 300);
 
-  /* ── NAV ACTIVE STATE ── */
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id'); });
-    navLinks.forEach(link => {
-      link.style.opacity = '0.75'; link.style.color = '';
-      if (link.getAttribute('href') === '#' + current) { link.style.opacity = '1'; link.style.color = '#0A4226'; }
+  /* Hero elements animate in on first paint via rAF instead of arbitrary setTimeout */
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      document.querySelectorAll('.hero .fade-up').forEach(el => el.classList.add('visible'));
     });
   });
+
+  /* ── NAV ACTIVE STATE — throttled via rAF ── */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  let scrollTicking = false;
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      requestAnimationFrame(() => {
+        let current = '';
+        sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id'); });
+        navLinks.forEach(link => {
+          link.style.opacity = '0.75'; link.style.color = '';
+          if (link.getAttribute('href') === '#' + current) { link.style.opacity = '1'; link.style.color = '#0A4226'; }
+        });
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
+  }, { passive: true });
 
   /* ── SERVICES TABS ── */
   function switchTab(tab, btn) {
@@ -2008,8 +2005,8 @@
     document.getElementById('mobileNavPanel').setAttribute('aria-hidden', 'true');
     document.body.classList.remove('mobile-nav-locked');
   }
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileNav(); });
-  window.addEventListener('resize', () => { if (window.innerWidth > 640) closeMobileNav(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeMobileNav(); closeLegalModal(); } });
+  window.addEventListener('resize', () => { if (window.innerWidth > 640) closeMobileNav(); }, { passive: true });
 
   /* ── LEGAL MODAL ── */
   function openLegalModal() {
